@@ -4,8 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.example.auth.LoginPage;
-import org.example.auth.LoginResult;
-import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -32,13 +30,9 @@ public class LoginStep {
     }
     @Then("user should be redirected to the homepage")
     public void user_should_be_redirected_to_the_homepage() {
-        LoginResult result = new LoginResult(driver);
-        boolean modal = result.getModal();
+        LoginPage login = new LoginPage(driver);
+        boolean modal = login.getModal();
         assertTrue(modal);
-    }
-
-    @After()
-    public void closeBrowser(){
-        driver.quit();
+        login.confirmLogin();
     }
 }

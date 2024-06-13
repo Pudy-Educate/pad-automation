@@ -2,11 +2,9 @@ package org.example.auth;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class LoginPage {
-    By uname = new By.ById("email");
-    By pass = new By.ById("password");
-    By btnSubmit = By.xpath("/html/body/div[1]/div/div/div[2]/button");
     WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -14,11 +12,21 @@ public class LoginPage {
     }
 
     public void setLoginForm(String username, String password) {
-        driver.findElement(uname).sendKeys(username);
-        driver.findElement(pass).sendKeys(password);
+        driver.findElement(AuthObject.email).sendKeys(username);
+        driver.findElement(AuthObject.password).sendKeys(password);
     }
 
     public void clickSubmit() {
-        driver.findElement(btnSubmit).click();
+        driver.findElement(AuthObject.btnLogin).click();
+    }
+
+    public Boolean getModal()
+    {
+        WebElement modal = driver.findElement(AuthObject.swalLogin);
+        return modal.isDisplayed();
+    }
+
+    public void confirmLogin() {
+        driver.findElement(AuthObject.btnConfirmModal).click();
     }
 }
