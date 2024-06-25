@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 public class LogoutPage {
     WebDriver driver;
 
+    public LogoutPage() {
+    }
     public LogoutPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -27,6 +29,8 @@ public class LogoutPage {
 
     @After
     public void tearDown() {
-        Basepage.driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
