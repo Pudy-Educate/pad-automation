@@ -42,5 +42,10 @@ public class DeleteArticleStep {
         confirmButton.click();
     }
 
+    @When("the klinik should be added to the list of klinik")
+    public void the_klinik_should_be_added_to_the_list_of_klinik() {
+        WebElement articlesSection = driver.findElement(By.xpath("//tr[td[text()='Klinik Test']]"));
+        Assert.assertTrue(articlesSection.isDisplayed());
+    }
 
 }
