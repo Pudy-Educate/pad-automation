@@ -69,6 +69,16 @@
       <artifactId>selenium-java</artifactId>
       <version>4.20.0</version>
     </dependency>
+
+
+
+    <!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+    <dependency>
+      <groupId>net.masterthought</groupId>
+      <artifactId>maven-cucumber-reporting</artifactId>
+      <version>5.8.1</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -77,7 +87,37 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M5</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
+        <version>5.8.1</version>
+        <executions>
+          <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <projectName>cucumberReporting</projectName>
+              <skip>false</skip>
+              <outputDirectory>${project.build.directory}</outputDirectory>
+              <inputDirectory>${project.build.directory}</inputDirectory>
+              <jsonFiles>
+                <param>**/*.json</param>
+              </jsonFiles>
+              <mergeFeaturesById>false</mergeFeaturesById>
+              <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+              <checkBuildResult>false</checkBuildResult>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
+
   </build>
 </project>

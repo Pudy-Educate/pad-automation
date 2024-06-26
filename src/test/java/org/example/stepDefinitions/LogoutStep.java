@@ -3,11 +3,9 @@ package org.example.stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.auth.LogoutPage;
-import org.example.object.Basepage;
+import org.example.pages.auth.LogoutPage;
+import org.example.pages.Basepage;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.assertEquals;
 

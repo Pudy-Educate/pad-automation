@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static org.example.object.Basepage.driver;
+import static org.example.pages.Basepage.driver;
 
 public class DeleteKlinikStep {
 
@@ -15,7 +15,8 @@ public class DeleteKlinikStep {
     }
 
     @When("clicks on the Hapus button on {string}")
-    public void clicks_on_the_hapus_button(String klinikName) {
+    public void clicks_on_the_hapus_button(String klinikName)throws InterruptedException {
+        Thread.sleep(3000);
         WebElement articlesSection = driver.findElement(By.xpath("//tr[td[text()='" + klinikName + "']]"));
         WebElement deleteButton = articlesSection.findElement(By.xpath(".//button[text()='Hapus']"));
         deleteButton.click();
