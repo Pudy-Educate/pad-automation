@@ -3,15 +3,19 @@ package org.example.stepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.auth.LoginPage;
-import org.example.object.Basepage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.example.pages.auth.LoginPage;
+import org.example.pages.Basepage;
+import org.junit.Before;
+import org.junit.jupiter.api.BeforeAll;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginStep {
-
+    @BeforeAll
+    public void setUp() throws InterruptedException {
+        Basepage.driver.manage().window().maximize();;
+        Thread.sleep(2000);
+    }
 
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {

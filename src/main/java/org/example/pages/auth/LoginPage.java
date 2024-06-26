@@ -1,6 +1,6 @@
-package org.example.auth;
+package org.example.pages.auth;
 
-import org.openqa.selenium.By;
+import org.example.object.AuthObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 

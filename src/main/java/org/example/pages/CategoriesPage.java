@@ -1,6 +1,5 @@
-package org.example;
+package org.example.pages;
 
-import org.example.object.Basepage;
 import org.example.object.CategoriesObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

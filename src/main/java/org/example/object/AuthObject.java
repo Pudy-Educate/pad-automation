@@ -1,4 +1,4 @@
-package org.example.auth;
+package org.example.object;
 
 import org.openqa.selenium.By;
 

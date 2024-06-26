@@ -1,7 +1,7 @@
-package org.example.auth;
+package org.example.pages.auth;
 
 import io.cucumber.java.After;
-import org.example.object.Basepage;
+import org.example.object.AuthObject;
 import org.openqa.selenium.WebDriver;
 
 public class LogoutPage {
